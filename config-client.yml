@@ -1,0 +1,25 @@
+spring:
+  proifles:
+    active: dev
+---
+server:
+  port: 8201
+spring:
+  proifles: dev
+  application:
+    name: springcloud-provider-dept
+eureka:
+  client:
+    server-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+---
+server:
+    port: 8202 
+spring:
+  proifles: test
+  application:
+    name: springcloud-provider-dept
+eureka:
+  client:
+    server-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
