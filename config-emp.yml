@@ -38,7 +38,7 @@ info:
 server:
   port: 8001
 mybatis:
-  type-aliases-package: com.joy.pojo
+  type-aliases-package: com.stj.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
   config-location: classpath:mybatis/mybatis-config.xml
 #spring配置
@@ -49,18 +49,18 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/joy?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 12345
 #Eureka 
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     instance-id: springcloud-provider-emp-8001
     prefer-ip-address: true #显示服务的IP地址
 
 info:
-  app.name: joy
+  app.name: sjt
   app.company: AAA.com
