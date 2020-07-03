@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 9001
+spring:
+  profiles: dev
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: zuul9001.com
+    prefer-ip-address: true
+info:
+  app.name: joy
+zuul:
+  routes:
+    mydept.serviceId: springcloud-config-emp
+    mydept.path: /myemp/**
+  ignored-services: springcloud-config-emp #不能再用这个路径访问
+
+
+---
+server:
+  port: 9001
+spring:
+  profiles: test
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: zuul9001.com
+    prefer-ip-address: true
+info:
+  app.name: joy
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-emp
+    mydept.path: /myemp/**
+  ignored-services: springcloud-provider-emp #不能再用这个路径访问
